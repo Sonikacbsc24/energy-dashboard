@@ -215,7 +215,7 @@ st.markdown("")
 
 # ─── Tabs ─────────────────────────────────────────────────────────────────────
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    " Overview", "🔍 Patterns", " Outliers & Scaling", " Predict Power", " Predict Sub-Metering"
+    " Overview", " Patterns", " Outliers & Scaling", " Predict Power", " Predict Sub-Metering"
 ])
 
 plt_kwargs = dict(facecolor='#0d1b2a')
@@ -485,7 +485,7 @@ with tab4:
 
     dow_map2 = {'Monday':0,'Tuesday':1,'Wednesday':2,'Thursday':3,'Friday':4,'Saturday':5,'Sunday':6}
 
-    if st.button("⚡ Predict Power Consumption"):
+    if st.button(" Predict Power Consumption"):
         new_val = [[voltage, intensity, sub1, sub2, sub3, dow_map2[dow_in], month_in, hour_in]]
         pred = model1.predict(new_val)[0]
         energy_kwh = pred * (1/60)
@@ -575,7 +575,7 @@ with tab5:
         s_yr   = st.number_input("Year", value=2025, step=1)
         s_mo   = st.selectbox("Month ", list(range(1,13)), index=9)
 
-    if st.button("🧺 Predict Sub-Metering 3"):
+    if st.button(" Predict Sub-Metering 3"):
         dow_enc  = dow_map2[s_dow]
         h2       = s_hr ** 2
         h_dow    = s_hr * dow_enc
